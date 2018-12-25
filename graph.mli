@@ -25,6 +25,9 @@ val add_arc: 'a graph -> id -> id -> 'a -> 'a graph
 
 (**************  GETTERS  *****************)
 
+(*nb_node graph return the number of nodes in graph *)
+val nb_node: 'a graph -> int
+
 (* node_exists gr id  indicates if the node with identifier id exists in graph gr. *)
 val node_exists: 'a graph -> id -> bool
 
