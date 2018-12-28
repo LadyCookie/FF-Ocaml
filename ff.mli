@@ -1,5 +1,3 @@
-
-
 open Graph
 
 (*list of nodes*)
