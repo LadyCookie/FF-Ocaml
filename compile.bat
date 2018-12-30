@@ -10,5 +10,5 @@ ocamlc -c FF.ml
 ocamlc -c bipartitematching.mli
 ocamlc -c bipartitematching.ml
 
-ocamlc -o ftest7.exe graph.cmo gfile.cmo FF.cmo bipartiteMatching.cmo ftest7.ml
+ocamlc -o ftest8.exe graph.cmo gfile.cmo FF.cmo bipartitematching.cmo ftest8.ml
 pause
