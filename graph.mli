@@ -31,6 +31,9 @@ val nb_node: 'a graph -> int
 (* node_exists gr id  indicates if the node with identifier id exists in graph gr. *)
 val node_exists: 'a graph -> id -> bool
 
+(*out nodes return the id of all the nodes of a graph*)
+val out_nodes : 'a graph -> id list
+
 (* Type of lists of outgoing arcs of a node. 
  * An arc is represented by a pair of the destination identifier and the arc label. *)
 type 'a out_arcs = (id * 'a) list
