@@ -8,31 +8,31 @@ type path= id list
 
 let find_path graph source sink=
   (*parcours en profondeur*)
-  let rec loop forbidden lsource acu=
+	let rec loop forbidden lsource acu=
     (*si il y a un chemin direct, c'est fini, sinon, on cherche un fils permis, si il existe, on continue le parcours, si il n'existe pas, on remonte d'un cran*)
-    let path_impossible=
-      try 
-	let (fils_permis,_) = List.find (fun (id,x) -> not (List.exists (fun numero -> numero == id) forbidden)) (out_arcs graph lsource)
-	in loop (fils_permis::forbidden) fils_permis (fils_permis::acu)
-      with (*dans le cas ou aucun fils n'est permis*)
-        |Not_found -> match acu with
-        | [] -> assert false
-	| [source] -> []
-        | first :: second :: rest -> loop forbidden second (second :: rest)
-    in
+    	let path_impossible=
+      		try 
+				let (fils_permis,_) = List.find (fun (id,x) -> not (List.exists (fun numero -> numero == id) forbidden) && x>0 ) (out_arcs graph lsource)
+				in loop (fils_permis::forbidden) fils_permis (fils_permis::acu)
+      		with (*dans le cas ou aucun fils n'est permis*)
+        		|Not_found -> match acu with
+        		| [] -> assert false
+				| [source] -> []
+       			| first :: second :: rest -> loop forbidden second (second :: rest)
+    	in
     
-    match (find_arc graph lsource sink) with
-    | Some x -> if x<=0 then path_impossible else (sink::acu)
-    | None -> path_impossible 
+   		match (find_arc graph lsource sink) with
+    		| Some x -> if (x<=0) then path_impossible else (sink::acu)
+    		| None -> path_impossible 
 
-  in
-  let result=loop [source] source [source]
-  in
-  if (node_exists graph source) && (node_exists graph sink) 
-  then match result with
-    | [] -> None
-    | _ -> Some (List.rev result)
-  else None
+  	in
+  	let result=loop [source] source [source]
+  	in
+  	if (node_exists graph source) && (node_exists graph sink) 
+  	then match result with
+    	| [] -> None
+   		| _ -> Some (List.rev result)
+  	else None
 
 
 let find_flow graph opt_path=
@@ -88,8 +88,12 @@ let graph_of_ecart graph gr_ecart source=
   loop_arc source graph (out_arcs graph source) [] [source]
     
 
-let rec ff graph source sink=
-  match find_path graph source sink with
-  |None -> graph
-  |Some path -> ff (opt_apply_flow graph (Some path) (find_flow graph (Some path))) source sink
+let ff graph source sink=
+	let rec loop graph_ecart=
+  		match find_path graph_ecart source sink with
+  			|None -> graph_ecart
+  			|Some path -> loop (opt_apply_flow graph_ecart (Some path) (find_flow graph_ecart (Some path)))
+	in
+	graph_of_ecart graph (loop graph) source
+
 

@@ -1,5 +1,5 @@
 open Graph
-open FF
+open Ff
 
 type path = string
 

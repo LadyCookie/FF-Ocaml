@@ -1,5 +1,5 @@
 open Graph
-open FF
+open Ff
 
 let () =
   if Array.length Sys.argv <> 5 then

@@ -15,7 +15,7 @@ let () =
   let graph = BipartiteMatching.convert infile in
   let int_graph = Graph.map graph int_of_string in
   let ff_graph = Ff.ff int_graph "0" "1" in
-  let final_graph=BipartiteMatching.convert ff_graph in
+  let final_graph=BipartiteMatching.filter ff_graph in
   (* Rewrite the graph that has been read. *)
   let () =
     Gfile.export outfile final_graph

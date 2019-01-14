@@ -1,6 +1,8 @@
 ### Starting build.
-# Target: ftest6.ml.depends, tags: { extension:ml, file:ftest6.ml, ocaml, ocamldep, quiet }
-/home/commetud/GEI/OCaml/.opam/4.04.2/bin/ocamldep.opt -modules ftest6.ml > ftest6.ml.depends
+# Target: biparti_test.ml.depends, tags: { extension:ml, file:biparti_test.ml, ocaml, ocamldep, quiet }
+/home/commetud/GEI/OCaml/.opam/4.04.2/bin/ocamldep.opt -modules biparti_test.ml > biparti_test.ml.depends # cached
+# Target: BipartiteMatching.mli.depends, tags: { extension:mli, file:BipartiteMatching.mli, ocaml, ocamldep, quiet }
+/home/commetud/GEI/OCaml/.opam/4.04.2/bin/ocamldep.opt -modules BipartiteMatching.mli > BipartiteMatching.mli.depends
 # Target: ff.mli.depends, tags: { extension:mli, file:ff.mli, ocaml, ocamldep, quiet }
 /home/commetud/GEI/OCaml/.opam/4.04.2/bin/ocamldep.opt -modules ff.mli > ff.mli.depends # cached
 # Target: graph.mli.depends, tags: { extension:mli, file:graph.mli, ocaml, ocamldep, quiet }
@@ -13,8 +15,12 @@
 /home/commetud/GEI/OCaml/.opam/4.04.2/bin/ocamldep.opt -modules gfile.mli > gfile.mli.depends # cached
 # Target: gfile.cmi, tags: { byte, compile, extension:mli, file:gfile.mli, interf, ocaml, quiet }
 /home/commetud/GEI/OCaml/.opam/4.04.2/bin/ocamlc.opt -c -o gfile.cmi gfile.mli # cached
-# Target: ftest6.cmo, tags: { byte, compile, extension:cmo, extension:ml, file:ftest6.cmo, file:ftest6.ml, implem, ocaml, quiet }
-/home/commetud/GEI/OCaml/.opam/4.04.2/bin/ocamlc.opt -c -o ftest6.cmo ftest6.ml
+# Target: BipartiteMatching.cmi, tags: { byte, compile, extension:mli, file:BipartiteMatching.mli, interf, ocaml, quiet }
+/home/commetud/GEI/OCaml/.opam/4.04.2/bin/ocamlc.opt -c -o BipartiteMatching.cmi BipartiteMatching.mli
+# Target: biparti_test.cmo, tags: { byte, compile, extension:cmo, extension:ml, file:biparti_test.cmo, file:biparti_test.ml, implem, ocaml, quiet }
+/home/commetud/GEI/OCaml/.opam/4.04.2/bin/ocamlc.opt -c -o biparti_test.cmo biparti_test.ml
+# Target: BipartiteMatching.ml.depends, tags: { extension:ml, file:BipartiteMatching.ml, ocaml, ocamldep, quiet }
+/home/commetud/GEI/OCaml/.opam/4.04.2/bin/ocamldep.opt -modules BipartiteMatching.ml > BipartiteMatching.ml.depends
 # Target: ff.ml.depends, tags: { extension:ml, file:ff.ml, ocaml, ocamldep, quiet }
 /home/commetud/GEI/OCaml/.opam/4.04.2/bin/ocamldep.opt -modules ff.ml > ff.ml.depends # cached
 # Target: graph.ml.depends, tags: { extension:ml, file:graph.ml, ocaml, ocamldep, quiet }
@@ -27,8 +33,10 @@
 /home/commetud/GEI/OCaml/.opam/4.04.2/bin/ocamldep.opt -modules gfile.ml > gfile.ml.depends # cached
 # Target: gfile.cmx, tags: { compile, extension:cmx, extension:ml, file:gfile.cmx, file:gfile.ml, implem, native, ocaml, quiet }
 /home/commetud/GEI/OCaml/.opam/4.04.2/bin/ocamlopt.opt -c -o gfile.cmx gfile.ml # cached
-# Target: ftest6.cmx, tags: { compile, extension:cmx, extension:ml, file:ftest6.cmx, file:ftest6.ml, implem, native, ocaml, quiet }
-/home/commetud/GEI/OCaml/.opam/4.04.2/bin/ocamlopt.opt -c -o ftest6.cmx ftest6.ml
-# Target: ftest6.native, tags: { dont_link_with, extension:native, file:ftest6.native, link, native, ocaml, program, quiet }
-/home/commetud/GEI/OCaml/.opam/4.04.2/bin/ocamlopt.opt graph.cmx ff.cmx gfile.cmx ftest6.cmx -o ftest6.native
+# Target: BipartiteMatching.cmx, tags: { compile, extension:cmx, extension:ml, file:BipartiteMatching.cmx, file:BipartiteMatching.ml, implem, native, ocaml, quiet }
+/home/commetud/GEI/OCaml/.opam/4.04.2/bin/ocamlopt.opt -c -o BipartiteMatching.cmx BipartiteMatching.ml
+# Target: biparti_test.cmx, tags: { compile, extension:cmx, extension:ml, file:biparti_test.cmx, file:biparti_test.ml, implem, native, ocaml, quiet }
+/home/commetud/GEI/OCaml/.opam/4.04.2/bin/ocamlopt.opt -c -o biparti_test.cmx biparti_test.ml
+# Target: biparti_test.native, tags: { dont_link_with, extension:native, file:biparti_test.native, link, native, ocaml, program, quiet }
+/home/commetud/GEI/OCaml/.opam/4.04.2/bin/ocamlopt.opt graph.cmx ff.cmx BipartiteMatching.cmx gfile.cmx biparti_test.cmx -o biparti_test.native
 # Compilation successful.

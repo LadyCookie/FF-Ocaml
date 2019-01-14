@@ -2,23 +2,17 @@ open Graph
 open Ff
 open Printf
 type path = string
-
 let shift label=string_of_int((int_of_string label)+2)
-
 let unshift label=string_of_int((int_of_string label)-2)
-
 let read_x graph line=
   try Scanf.sscanf line "x %s" (fun id-> add_arc (add_node graph (shift id)) "0" (shift id) "1")
   with e -> failwith "convert"
-
 let read_y graph line=
   try Scanf.sscanf line "y %s" (fun id-> add_arc (add_node graph (shift id)) (shift id) "1" "1")
   with e -> failwith "convert"
-
 let read_e graph line=
   try Scanf.sscanf line "e %s %s" (fun id1 id2 -> add_arc graph (shift id1) (shift id2) "1")
   with e -> failwith "convert"
-
 (* convert : path -> string graph*)
 let convert path=
   let infile = open_in path in
@@ -40,7 +34,6 @@ let convert path=
   let final_graph = loop (add_node (add_node empty_graph "0") "1") in
     close_in infile;
     final_graph
-
 
 (* filter : int graph -> string graph*)
 let filter graph=

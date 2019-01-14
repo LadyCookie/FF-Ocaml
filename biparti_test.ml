@@ -1,6 +1,6 @@
 open Graph
-open FF
-open Bipartitematching
+open Ff
+open BipartiteMatching
 let () =
   if Array.length Sys.argv <> 3 then
     begin
@@ -12,10 +12,10 @@ let () =
   (* These command-line arguments are not used for the moment. *)
   in
   (* Open file *)
-  let graph = Bipartitematching.convert infile in
+  let graph = BipartiteMatching.convert infile in
   let int_graph = Graph.map graph int_of_string in
-  let ff_graph = FF.ff int_graph "0" "1" in
-  let final_graph=Bipartitematching.filter ff_graph in
+  let ff_graph = Ff.ff int_graph "0" "1" in
+  let final_graph=BipartiteMatching.filter ff_graph in
   (* Rewrite the graph that has been read. *)
   let () =
     Gfile.export outfile final_graph
